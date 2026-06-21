@@ -7,7 +7,7 @@ folder. Keep it current.
 ## Progress Tracker
 - [x] Introduction — Why Trade Options?
 - [x] Chapter 1 — Math and Finance Preliminaries
-- [ ] Chapter 2 — Volatility Trading and Implied Volatility
+- [x] Chapter 2 — Volatility Trading and Implied Volatility
 - [ ] Chapter 3 — Trading Short Premium
 - [ ] Chapter 4 — Buying Power Reduction
 - [ ] Chapter 5 — Constructing a Trade
@@ -91,6 +91,16 @@ folder. Keep it current.
 - Correlation between assets determines whether combining positions reduces or increases portfolio risk (Var(X+Y) = Var(X) + Var(Y) + 2Cov(X,Y))
 - Beta measures a stock's volatility relative to the market; used in beta-weighted delta calculations (Ch 7)
 - CVaR is preferred over VaR for heavy-tailed or skewed distributions like short options P/L
+- IV is non-directional; it measures the *magnitude* of expected price movement, not direction
+- IV is the market's perceived risk embedded in option prices through supply and demand for financial insurance; when demand increases, IV increases
+- IV tends to overstate realized volatility significantly: for SPY (2016–2021), market IV overstated realized moves 87% of the time vs. theoretical 68.2%
+- IV reverts to long-term averages after spikes; this reversion is core to premium-selling profitability (high IV contractions create buyback opportunities)
+- Different assets have different IV baselines: broad indexes (SPY) ~17–18; commodities (GLD) ~15–16; tech stocks (AAPL, AMZN) ~30; single stocks are 1.7–2× higher than broad indexes
+- IV has three recurring states: Lull (~70% of time, IV near baseline), Expansion (~10%, IV spikes), Contraction (~20%, IV deflates); lulls are longest, expansions fastest, contractions intermediate
+- Earnings dates create predictable IV spikes for single stocks but not for broad indexes; IV collapses post-earnings once uncertainty resolves
+- Expected move cone = IV × √(Days/365) × Stock price; provides estimated 68.2% probability range under normal distribution assumption
+- Options sellers (short premium) have long-term statistical advantage because fear is usually priced in higher than realized, but sellers face tail risk from rare large moves
+- IV scaling: for 45-day contracts, multiply annualized IV by ~0.35 to match contract duration
 
 ## Notes
 - Raw chapter files go in `source/`.

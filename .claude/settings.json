@@ -13,7 +13,16 @@
     "UserPromptSubmit": [],
     "PreToolUse": [],
     "PostToolUse": [],
-    "SessionEnd": []
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /Users/ansonngch/Documents/ideas/ai-book-reader/.claude/hooks/progress-reminder.sh"
+          }
+        ]
+      }
+    ]
   },
   "autoMemoryEnabled": true
 }

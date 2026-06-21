@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-keybindings.json",
+  "bindings": [
+    {
+      "key": "ctrl+enter",
+      "command": "submit-prompt",
+      "description": "Submit prompt"
+    },
+    {
+      "key": "ctrl+k",
+      "command": "clear-context",
+      "description": "Clear context"
+    },
+    {
+      "key": "ctrl+l",
+      "command": "clear-screen",
+      "description": "Clear screen"
+    },
+    {
+      "key": "ctrl+c",
+      "command": "stop",
+      "description": "Stop Claude"
+    }
+  ]
+}

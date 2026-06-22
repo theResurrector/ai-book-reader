@@ -10,7 +10,7 @@ folder. Keep it current.
 - [x] Chapter 2 — Volatility Trading and Implied Volatility
 - [x] Chapter 3 — Trading Short Premium
 - [x] Chapter 4 — Buying Power Reduction
-- [ ] Chapter 5 — Constructing a Trade
+- [x] Chapter 5 — Constructing a Trade
 - [ ] Chapter 6 — Managing Trades
 - [ ] Chapter 7 — Basic Portfolio Management
 - [ ] Chapter 8 — Advanced Portfolio Management
@@ -109,6 +109,19 @@ folder. Keep it current.
 - Empirically (SPY 45-DTE 16Δ strangles, 2005–2021), 95% of losses stayed within BPR; only 5% of trades had outlier losses exceeding the reserve
 - BPR enables capital allocation rules: more simultaneous positions allowed when IV is high (low BPR per trade), fewer positions when IV is low (high BPR per trade)
 - BPR is NOT comparable across different strategies (e.g., short strangles vs. short puts vs. short spreads) because each has different risk profiles; it can only compare variations within the same strategy
+- Trade construction has six interdependent decisions: asset universe, underlying, contract duration, risk profile (defined vs undefined), directional assumption, and delta selection
+- Liquid asset universe is a prerequisite: underlying must have >1M daily volume and <0.1% bid-ask spread; options contracts must have tight bid-ask spreads and high open interest across strikes
+- Stocks have higher IV and higher credits (profits) but also higher BPR, company-specific risk (earnings), and P/L volatility; ETFs are cheaper, diversified, and more stable but have lower credits and less frequent high IV
+- Product indifference: if two underlyings have the same IV, their options will have roughly the same price as a percentage of underlying price; choice depends on account size and risk tolerance, not inherent superiority
+- Contract duration trade-off: 15 DTE strangles have high gamma and wild P/L swings but leverage premium decay; 30–60 DTE strangles have manageable P/L volatility and time for adjustments; most suitable range is 30–60 DTE for efficient use of BPR
+- P/L volatility (standard deviation) increases with gamma and time to expiration; 15 DTE has peak volatility mid-contract due to high gamma; 60 DTE has lower early volatility due to strikes further from ATM
+- Defined risk strategies (iron condors, spreads) have lower POP and lower profits but cap maximum loss; undefined risk (strangles, naked) have higher POP and higher profits but unlimited loss; portfolio split is typically 75% undefined, 25% defined
+- Strike distance from ATM varies with delta and DTE; 16Δ put is 3.9% OTM for 15 DTE but 8% OTM for 45 DTE; put strikes are systematically further OTM than call strikes (put skew)
+- Iron condor maximum loss = (spread width) − (net credit) × 100; wings cap losses for extreme moves; two examples: tight 5Δ wings have 79% POP and $35 avg profit with $251 std dev, while wide 13Δ wings have 73% POP and $6 avg profit with $74 std dev
+- Delta selection determines risk-reward profile: 16Δ strangles have 81% POP, $44 avg profit, $614 std dev; 30Δ strangles have 68% POP, $54 avg profit, $747 std dev; 10–40Δ range is typical, 16–20Δ is the sweet spot
+- Optimal delta depends on profit goals and risk tolerance; wider deltas (less OTM) have higher profit potential but lower POP and higher volatility; tighter deltas have higher POP but smaller profits and less tail risk
+- Strike positioning: as IV increases, strikes for a given delta move further OTM; when IV rises, traders should close existing positions and reopen with adjusted (wider) strikes to maintain the delta target
+- Empirical validation: 45-DTE 16Δ SPY strangles have 81% POP, stocks average $400–$1,100 profit with $1,400–$2,900 losses (3–4× larger swings), ETFs average $30–$160 profit with $100–$424 losses; consistent POP across underlyings (76–83%) validates short premium edge
 
 ## Notes
 - Raw chapter files go in `source/`.

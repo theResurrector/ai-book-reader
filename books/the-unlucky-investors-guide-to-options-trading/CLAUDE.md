@@ -8,7 +8,7 @@ folder. Keep it current.
 - [x] Introduction — Why Trade Options?
 - [x] Chapter 1 — Math and Finance Preliminaries
 - [x] Chapter 2 — Volatility Trading and Implied Volatility
-- [ ] Chapter 3 — Trading Short Premium
+- [x] Chapter 3 — Trading Short Premium
 - [ ] Chapter 4 — Buying Power Reduction
 - [ ] Chapter 5 — Constructing a Trade
 - [ ] Chapter 6 — Managing Trades

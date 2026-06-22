@@ -9,7 +9,7 @@ folder. Keep it current.
 - [x] Chapter 1 — Math and Finance Preliminaries
 - [x] Chapter 2 — Volatility Trading and Implied Volatility
 - [x] Chapter 3 — Trading Short Premium
-- [ ] Chapter 4 — Buying Power Reduction
+- [x] Chapter 4 — Buying Power Reduction
 - [ ] Chapter 5 — Constructing a Trade
 - [ ] Chapter 6 — Managing Trades
 - [ ] Chapter 7 — Basic Portfolio Management
@@ -101,6 +101,14 @@ folder. Keep it current.
 - Expected move cone = IV × √(Days/365) × Stock price; provides estimated 68.2% probability range under normal distribution assumption
 - Options sellers (short premium) have long-term statistical advantage because fear is usually priced in higher than realized, but sellers face tail risk from rare large moves
 - IV scaling: for 45-day contracts, multiply annualized IV by ~0.35 to match contract duration
+- Buying Power Reduction (BPR) is the capital a broker requires to hold a short option position; it is YOUR equity held in reserve, not borrowed money (unlike stock margin)
+- For long options, BPR = option cost. For short options, BPR is calculated to cover ~95% of potential losses for ETF underlyings and ~90% for stock underlyings
+- BPR for a short strangle is max(Put BPR, Call BPR), calculated using max of three scenarios: 20% move, 10% strike breach, and a floor (250 - premium × 100)
+- BPR scales linearly with underlying price: expensive underlyings require more BPR because 20% moves are larger in dollar terms
+- BPR scales inverse-exponentially with IV: high IV → low BPR (strikes spread wider OTM, loss potential decreases), low IV → high BPR; this incentivizes short premium when IV is highest
+- Empirically (SPY 45-DTE 16Δ strangles, 2005–2021), 95% of losses stayed within BPR; only 5% of trades had outlier losses exceeding the reserve
+- BPR enables capital allocation rules: more simultaneous positions allowed when IV is high (low BPR per trade), fewer positions when IV is low (high BPR per trade)
+- BPR is NOT comparable across different strategies (e.g., short strangles vs. short puts vs. short spreads) because each has different risk profiles; it can only compare variations within the same strategy
 
 ## Notes
 - Raw chapter files go in `source/`.

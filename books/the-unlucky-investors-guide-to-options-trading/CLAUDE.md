@@ -15,7 +15,7 @@ folder. Keep it current.
 - [x] Chapter 7 — Basic Portfolio Management
 - [x] Chapter 8 — Advanced Portfolio Management
 - [x] Chapter 9 — Binary Events
-- [ ] Chapter 10 — Conclusion and Key Takeaways
+- [x] Chapter 10 — Conclusion and Key Takeaways
 
 ## Glossary
 | Term | Definition |
@@ -153,6 +153,11 @@ folder. Keep it current.
 - AAPL earnings strangles (Day After): 72% POP, +$85 avg P/L, CVaR –$405; AMZN: 65% POP, +$99, CVaR –$1,927; GOOGL: 75% POP, –$60, CVaR –$4,639 — GOOGL is the textbook high-POP / negative-EV paradox
 - Binary event position sizing: 1–2 lots maximum where a normal position would be 5 lots; trade only with spare capital, never primary allocation
 - Small sample sizes (~60 earnings events per stock over 15 years) mean binary event statistics carry very wide confidence intervals; treat findings directionally only
+- VIX scaling table (the book's single most important lookup rule): VIX 0–15 → 25% max allocation; 15–20 → 30%; 20–30 → 35%; 30–40 → 40%; 40+ → 50%
+- ~200 occurrences required for law of large numbers to manifest the short premium edge — primary justification for trading in all IV environments and redeploying capital quickly
+- Short premium strangle BPR ≈ 20% of underlying price (rule of thumb)
+- High-POP defined risk trades (wide iron condors) have comparable risk profiles to undefined risk trades and may occupy undefined risk portfolio capital — better suited for low IV conditions
+- The complete short premium system: check VIX → set allocation → select underlyings → construct trades (45 DTE, 16–20Δ) → POP-weight positions → manage (50% credit or DTE midpoint) → monitor Greeks (bD≈0, theta ratio 0.05–0.1%) → binary events with spare capital only
 
 ## Notes
 - Raw chapter files go in `source/`.

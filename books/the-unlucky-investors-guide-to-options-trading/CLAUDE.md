@@ -11,7 +11,7 @@ folder. Keep it current.
 - [x] Chapter 3 — Trading Short Premium
 - [x] Chapter 4 — Buying Power Reduction
 - [x] Chapter 5 — Constructing a Trade
-- [ ] Chapter 6 — Managing Trades
+- [x] Chapter 6 — Managing Trades
 - [ ] Chapter 7 — Basic Portfolio Management
 - [ ] Chapter 8 — Advanced Portfolio Management
 - [ ] Chapter 9 — Binary Events
@@ -122,6 +122,16 @@ folder. Keep it current.
 - Optimal delta depends on profit goals and risk tolerance; wider deltas (less OTM) have higher profit potential but lower POP and higher volatility; tighter deltas have higher POP but smaller profits and less tail risk
 - Strike positioning: as IV increases, strikes for a given delta move further OTM; when IV rises, traders should close existing positions and reopen with adjusted (wider) strikes to maintain the delta target
 - Empirical validation: 45-DTE 16Δ SPY strangles have 81% POP, stocks average $400–$1,100 profit with $1,400–$2,900 losses (3–4× larger swings), ETFs average $30–$160 profit with $100–$424 losses; consistent POP across underlyings (76–83%) validates short premium edge
+- Active management (closing before expiration) offers three advantages over holding to expiration: more occurrences (faster law-of-large-numbers realization), more efficient BPR redeployment, and lower per-trade P/L standard deviation and tail CVaR
+- Managing at 21 DTE for a 45-DTE strangle roughly halves CVaR (–283% vs. –708% at expiration) while giving up only 7 percentage points of per-trade profit (21% vs. 28%)
+- Average Daily P/L (avg P/L ÷ avg duration) is the key metric for comparing capital efficiency across strategies; 21 DTE earns $1.60/day vs. $1.29/day at expiration — a 24% improvement
+- Profit target management (e.g., close at 50% of initial credit) raises POP (91%) but does NOT reduce tail CVaR — positions that miss the target still hold to expiration and carry full tail risk
+- Stop losses reduce CVaR but destroy POP: a –50% stop triggers 40% of the time and collapses POP to 58%; practical minimum is –200% (triggers only 13% of the time while cutting CVaR to –338%)
+- The combined "21 DTE or 50% profit, whichever first" strategy is the best all-around approach: POP 81%, CVaR –288%, Avg Daily P/L $1.67 — nearly identical tail risk to pure 21 DTE with slightly better daily efficiency
+- Per-trade risk reduction does NOT guarantee lower long-term portfolio risk: more occurrences compound cumulative exposure, and 2018–2019 showed expiration-managed strangles outperforming 21 DTE by ~93% because moderate repeated IV spikes aligned with the early closure window
+- Path dependence is extreme: a one-month shift in start date (Feb 3 vs. March 4, 2020) completely reversed which management strategy won, illustrating that backtests must be interpreted with caution
+- Stop losses are not suitable for defined risk positions (spreads, iron condors) — their capped maximum loss means they can recover; defined risk losers should run to expiration
+- Consistency is the primary management principle: the short premium edge only manifests across many occurrences, so the best rule is whichever can be executed without deviation across all market conditions
 
 ## Notes
 - Raw chapter files go in `source/`.

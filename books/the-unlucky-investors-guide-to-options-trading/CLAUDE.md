@@ -13,7 +13,7 @@ folder. Keep it current.
 - [x] Chapter 5 — Constructing a Trade
 - [x] Chapter 6 — Managing Trades
 - [x] Chapter 7 — Basic Portfolio Management
-- [ ] Chapter 8 — Advanced Portfolio Management
+- [x] Chapter 8 — Advanced Portfolio Management
 - [ ] Chapter 9 — Binary Events
 - [ ] Chapter 10 — Conclusion and Key Takeaways
 
@@ -141,6 +141,13 @@ folder. Keep it current.
 - Theta ratio = θ_portfolio / net portfolio liquidity; target 0.05%–0.1% per day (significantly exceeding the passive SPY benchmark of 0.013–0.025%); hard ceiling at 0.2% — above this, hidden gamma risk is accumulating
 - Gamma cannot be beta-weighted across a multi-underlying portfolio; the theta ratio ceiling (0.2%) is the practical proxy for detecting and limiting gamma risk
 - Small position sizes (5–7%) remain essential even with diversification — diversification reduces but does not eliminate compounding outlier losses; position sizing is the last line of defense
+- Advanced diversification adds two axes beyond underlying: time (staggering expiration dates so the portfolio holds contracts at different DTE stages) and strategy (mixing defined/undefined risk on the same underlying)
+- Strategy diversification: strangles vs. iron condors vs. 50/50 mix show approximately the same ~150% proportional drawdown during tail events — strategy diversification reduces absolute dollar losses, not percentage capital drawdowns
+- Kelly-derived capital allocation: f = r × (DTE/365) × POP/(1−POP); use r ≈ 3%; yields conservative absolute fractions that should be treated as proportional weights scaled up to the 7% per-trade cap
+- POP/(1−POP) is the core Kelly heuristic: allocate more buying power to higher-POP trades in proportion to their odds; GLD (84% POP) gets the 7% cap and all other positions are scaled relative to it
+- Correlated underlyings (e.g., SPY–QQQ at 0.88) must share one combined Kelly allocation; split the shared budget between them by their individual Kelly weight proportions (not each get their own independent budget)
+- POP-weighted six-ETF portfolio (SPY 3%, QQQ 2.2%, GLD 7%, TLT 4.8%, FXE 6.7%, XLU 5.9% ≈ 30% total) achieves comparable avg P/L to SPY equity with 44% lower std dev and 44% smaller worst-case loss
+- POP weighting is a portfolio initializer, not a dynamic rebalancer — ongoing Greek management (bD neutrality, theta ratio) from Chapter 7 remains the primary tool for live portfolio adjustment
 
 ## Notes
 - Raw chapter files go in `source/`.

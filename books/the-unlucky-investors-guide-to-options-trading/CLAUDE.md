@@ -12,7 +12,7 @@ folder. Keep it current.
 - [x] Chapter 4 — Buying Power Reduction
 - [x] Chapter 5 — Constructing a Trade
 - [x] Chapter 6 — Managing Trades
-- [ ] Chapter 7 — Basic Portfolio Management
+- [x] Chapter 7 — Basic Portfolio Management
 - [ ] Chapter 8 — Advanced Portfolio Management
 - [ ] Chapter 9 — Binary Events
 - [ ] Chapter 10 — Conclusion and Key Takeaways
@@ -132,6 +132,15 @@ folder. Keep it current.
 - Path dependence is extreme: a one-month shift in start date (Feb 3 vs. March 4, 2020) completely reversed which management strategy won, illustrating that backtests must be interpreted with caution
 - Stop losses are not suitable for defined risk positions (spreads, iron condors) — their capped maximum loss means they can recover; defined risk losers should run to expiration
 - Consistency is the primary management principle: the short premium edge only manifests across many occurrences, so the best rule is whichever can be executed without deviation across all market conditions
+- Portfolio capital allocation: 25–50% of buying power to short premium (VIX-scaled), remainder in cash or passive investment; within short premium: 75% min to undefined risk (max 7% per trade), 25% max to defined risk (max 5% per trade), 25% max to supplemental (stock) positions
+- Core positions use ETF underlyings (SPY, QQQ, GLD, TLT) for consistent returns; supplemental positions use stock underlyings (AAPL, GOOGL, AMZN) for higher profit potential but 3–8× larger average losses and CVaR
+- Diversification by underlying correlation is the single most important portfolio tool: uncorrelated assets (GLD –0.03, TLT –0.41 vs. SPY) dramatically reduce conditional probability of compounding outlier losses vs. highly correlated pairs (SPY+QQQ at 0.89 → 67% conditional compound loss rate)
+- An asset's individual outlier rate and its portfolio diversification value are distinct: GLD has 12% individual outlier rate but only 2.1% simultaneous loss rate with SPY; TLT's inverse correlation makes it the strongest equity hedge
+- Correlations strengthen during market crashes — calm-period correlation matrices understate crisis-period values; diversification benefits measured in normal times are overstated in stress scenarios
+- Beta-weighted delta (bD) = Δ_option × β_underlying; expresses all position deltas in units of $1 SPY move, making them additive across a multi-underlying portfolio; target bD ≈ 0 so profit comes from IV and theta, not market direction
+- Theta ratio = θ_portfolio / net portfolio liquidity; target 0.05%–0.1% per day (significantly exceeding the passive SPY benchmark of 0.013–0.025%); hard ceiling at 0.2% — above this, hidden gamma risk is accumulating
+- Gamma cannot be beta-weighted across a multi-underlying portfolio; the theta ratio ceiling (0.2%) is the practical proxy for detecting and limiting gamma risk
+- Small position sizes (5–7%) remain essential even with diversification — diversification reduces but does not eliminate compounding outlier losses; position sizing is the last line of defense
 
 ## Notes
 - Raw chapter files go in `source/`.

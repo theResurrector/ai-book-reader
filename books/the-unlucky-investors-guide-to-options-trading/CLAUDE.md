@@ -14,7 +14,7 @@ folder. Keep it current.
 - [x] Chapter 6 — Managing Trades
 - [x] Chapter 7 — Basic Portfolio Management
 - [x] Chapter 8 — Advanced Portfolio Management
-- [ ] Chapter 9 — Binary Events
+- [x] Chapter 9 — Binary Events
 - [ ] Chapter 10 — Conclusion and Key Takeaways
 
 ## Glossary
@@ -148,6 +148,11 @@ folder. Keep it current.
 - Correlated underlyings (e.g., SPY–QQQ at 0.88) must share one combined Kelly allocation; split the shared budget between them by their individual Kelly weight proportions (not each get their own independent budget)
 - POP-weighted six-ETF portfolio (SPY 3%, QQQ 2.2%, GLD 7%, TLT 4.8%, FXE 6.7%, XLU 5.9% ≈ 30% total) achieves comparable avg P/L to SPY equity with 44% lower std dev and 44% smaller worst-case loss
 - POP weighting is a portfolio initializer, not a dynamic rebalancer — ongoing Greek management (bD neutrality, theta ratio) from Chapter 7 remains the primary tool for live portfolio adjustment
+- Binary events (earnings, Fed, elections) create predictable IV expansion before and IV crush after, but the magnitude of the post-event price move is unpredictable; the market efficiently prices this uncertainty (EMH), so no consistent edge exists
+- Optimal earnings trade: open day before, close day after — captures most IV crush while limiting prolonged delta exposure; performance uniformly deteriorates at 5/10/20 days after
+- AAPL earnings strangles (Day After): 72% POP, +$85 avg P/L, CVaR –$405; AMZN: 65% POP, +$99, CVaR –$1,927; GOOGL: 75% POP, –$60, CVaR –$4,639 — GOOGL is the textbook high-POP / negative-EV paradox
+- Binary event position sizing: 1–2 lots maximum where a normal position would be 5 lots; trade only with spare capital, never primary allocation
+- Small sample sizes (~60 earnings events per stock over 15 years) mean binary event statistics carry very wide confidence intervals; treat findings directionally only
 
 ## Notes
 - Raw chapter files go in `source/`.
